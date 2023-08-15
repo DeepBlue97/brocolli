@@ -15,7 +15,8 @@ def test_mnist(shape=(1, 1, 28, 28)):
     from brocolli.quantization.quantizer import PytorchQuantizer
     from torchvision import datasets, transforms
     from torch.utils.data import DataLoader
-    from torchvision.models.utils import load_state_dict_from_url
+    # from torchvision.models.utils import load_state_dict_from_url
+    from torch.utils.model_zoo import load_url as load_state_dict_from_url
 
     class Net(nn.Module):
         def __init__(self):
@@ -117,7 +118,8 @@ def test_mnist(shape=(1, 1, 28, 28)):
 
     pytorch_quantizer = PytorchQuantizer(model, shape)
     pytorch_quantizer.fuse()
-    pytorch_quantizer.prepare()
+    # pytorch_quantizer.prepare()
+    pytorch_quantizer.prepare_calibration()
     pytorch_quantizer.calibrate(calibrate_func)
     pytorch_quantizer.convert()
     pytorch_quantizer.evaluate(evaluate_func)

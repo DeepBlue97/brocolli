@@ -127,3 +127,9 @@ tests/model
 
 # pylint
 .pylintrc
+
+data/
+examples/data
+examples/mnist.json
+profile_stats.txt
+examples/mnist.onnx
