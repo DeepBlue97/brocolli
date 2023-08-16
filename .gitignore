@@ -133,3 +133,5 @@ examples/data
 examples/mnist.json
 profile_stats.txt
 examples/mnist.onnx
+yolov5s.pt
+yolov5_lp.onnx
